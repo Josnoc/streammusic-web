@@ -1,0 +1,568 @@
+/* style applicable throughout the document */
+:root {
+    --whiteL: #b3b3b3;
+    --fondoG: #121212;
+    --fondoG2: #1a1a1a;
+    --bar: #000;
+    --navbar: rgba(0, 0, 0, .5);
+    --musicCard: #181818;
+    --verde: #1ed760;
+    --verdeHover: #1cb853;
+    --tomato: #ff6347;
+    --tomatoHover: #fb5a3e;
+}
+
+.bord {
+    border: 1px solid red;
+}
+
+.btn__back {
+    display: flex;
+    font-size: larger;
+    font-weight: bold;
+    background: none !important;
+    text-decoration: none;
+    color: var(--tomato);
+}
+
+.btn__back:hover {
+    /* text-decoration: none; */
+    color: var(--tomatoHover);
+}
+
+
+.footer {
+    background: var(--fondoG);
+}
+
+.body {
+    background: var(--fondoG);
+    min-height: 400px;
+    color: white;
+}
+
+.nav-item {
+    /* border: var(--borde); */
+    padding: 0 10px;
+}
+
+.btn {
+    /* background: var(--verde); */
+    background: white;
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.btn:hover {
+    /* background: var(--verdeHover); */
+    background: #000;
+}
+
+.btn-Rev {
+    background: var(--bar);
+    border: none;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.btn-Rev:hover {
+    background: white;
+}
+
+.btn:active,
+.btn-Rev:active {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+}
+
+/* style for the login component */
+.login-page {
+    height: 650px;
+    /* background-image: url("../assets/imgs/loginBack.jpg"); */
+    background-image: url("../assets/imgs/registerBack.jpg");
+    background: cover no-repeat;
+}
+
+.login-box {
+    background: var(--fondoG2);
+    width: 350px;
+    color: white;
+    /* box-shadow: 0px -0px 8px 0 rgb(121, 121, 121), 1px 1px 16px 3px rgb(121, 121, 121); */
+}
+
+.login-box>div {
+    /* background: var(--musicCard); */
+    /*width: 350px;
+    */
+    border-radius: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -o-border-radius: 9px;
+    box-shadow: 0px -0px 8px 0 rgb(87, 87, 87), 1px 1px 16px 3px rgb(66, 65, 65);
+}
+
+.login-logo img {
+    width: 90px;
+    height: 90px;
+}
+
+/* style for the register component */
+.register-page {
+    height: 700px;
+    background-image: url("../assets/imgs/registerBack.jpg");
+    background: cover no-repeat;
+}
+
+.register-box {
+    width: 450px;
+    box-shadow: 0px -0px 8px 0 rgb(121, 121, 121), 1px 1px 16px 3px rgb(121, 121, 121);
+}
+
+.sesion-Text a {
+    text-decoration: none;
+}
+
+.sesion-Text a:hover {
+    text-decoration: underline;
+}
+
+.br {
+    border: 1px solid red;
+}
+
+.dropdown-menu {
+    z-index: 1;
+}
+
+/* style for the card and Cards component */
+#main_cards {
+    max-width: 100%;
+    justify-content: center;
+}
+
+#main_cards .card {
+    border: none;
+    border-radius: 15px;
+    background: var(--musicCard);
+    color: white;
+    margin: 15px;
+    width: auto;
+    max-width: 23%;
+    min-width: 22%;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+#main_cards .card:hover {
+    background: #212121;
+}
+
+#main_cards .card .Card__link {
+    text-decoration: none;
+    color: inherit;
+}
+
+#main_cards .card .Card__link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+#main_cards .card .card-container {
+    width: 190px;
+    height: 190px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+#main_cards .card img {
+    max-width: 100%;
+}
+
+#main_cards .card:hover {
+    transform: scale(0.99);
+    -webkit-transform: scale(0.99);
+    -moz-transform: scale(0.99);
+    -ms-transform: scale(0.99);
+    -o-transform: scale(0.99);
+}
+
+.card .card-footer {
+    max-height: 55px;
+}
+
+.defaultCard .card-body {
+    min-width: 190px;
+}
+#main_cards .defaultCard {
+    min-width: 220px;
+    width: 22%;
+}
+
+/* Style for Modal */
+.card-img-cont {
+    display: block;
+    width: 40%;
+    height: auto;
+}
+
+.card-img-cont img {
+    width: 100%;
+    height: 100%;
+}
+
+.modal-body .body-Modal {
+    width: 60%;
+}
+.modal-body .body-Modal-edit {
+    width: 100%;
+}
+.modal-body .body-Modal input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.card-container .img-newlbum {
+    height: 100%;
+    width: 100%;
+}
+.card_img_container img {
+    width: 200px;
+    height: 189px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+/* Styles for Album component*/
+#Album_main {
+    z-index: 1006;
+    margin: 20px;
+    background: linear-gradient(0deg, black, rgb(49, 49, 49));
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+#Album_main .album__header {
+    height: 300px;
+}
+
+#Album_main .users__header {
+    height: 150px;
+}
+
+#Album_main .users__header img {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+#Album_main .users__header div {
+    max-height: 100%;
+    max-width: 100%;
+    width: 45%;
+}
+
+#Album_main .album__header img {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+#Album_main .album__img {
+    max-width: 50%;
+    width: auto;
+}
+
+/* 
+.album__controls {
+    background: var(--whiteL);
+} */
+#Album_main .album__controls .album__controls--buttons button {
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    background: #1cb853;
+    background: var(--tomato);
+    border: none;
+    padding: 8px 10px;
+    margin-left: 10px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+#Album_main .album__controls .album__controls--buttons .button_addSong {
+    display: inline-block;
+    margin-left: 70%;
+    width: fit-content;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+#Album_main .album__controls .album__controls--buttons .button_addSong:hover {
+    color: white;
+}
+
+#Album_main .album__controls .album__controls--buttons button svg {
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+}
+
+#Album_main .album__controls .album__controls--buttons button:active {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+}
+
+#Album_main .album__controls .album__controls--buttons .btn_fav:hover {
+    color: red;
+}
+
+#Album_main .album_songs {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Album_main .album_songs .table {
+    width: 80%;
+}
+
+#Album_main .album_songs .table thead {
+    color: white;
+}
+
+#Album_main .album_songs .table tbody {
+    color: rgba(255, 255, 255, 0.704);
+}
+
+/* Styles for Songs Component */
+
+
+/* style for the Perfil component */
+.menu_perfil_back {
+    min-height: 500px;
+}
+
+.menu_perfil_back .nav-pills {
+    min-width: 200px;
+}
+#perfilImage_container {
+    width: 101px;
+    height: 101px;
+}
+
+.menu_perfil_back .nav-pills #perfil__User {
+    width: 100px;
+    height: 100px;
+    border: rgb(142, 140, 140);
+    overflow: hidden;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.menu_perfil_back .nav-pills #perfil__User img {
+    width: 100%;
+    height: 100%;
+}
+
+.menu_perfil_back .tab-content {
+    background: #000;
+    width: 100%;
+    height: 100%;
+}
+
+.menu_perfil_back #v-pills-tab button {
+    width: 100%;
+    color: black;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+
+.menu_perfil_back #v-pills-tab .nav-link:hover {
+    /*border-left: #000 solid 2px ;
+    */
+    box-shadow: -7px 0px 0px 0px rgb(42, 42, 42);
+    border: #b3b3b3 solid 1px;
+    transform: scale(1.07);
+    -webkit-transform: scale(1.07);
+    -moz-transform: scale(1.07);
+    -ms-transform: scale(1.07);
+    -o-transform: scale(1.07);
+}
+
+.menu_perfil_back #v-pills-tab button.active {
+    box-shadow: -7px 0px 0px 0px black;
+    color: black;
+    background: none;
+    font-weight: bold;
+}
+
+#v-pills-tab .btn-ChangeImage {
+    color: white;
+    opacity: 0.4;
+    font-weight: bold;
+    width: 98px;
+    height: 100px;
+    box-shadow: none;
+    border: none;
+    background: none;
+    border-radius: 50% ;
+    -webkit-border-radius: 50% ;
+    -moz-border-radius: 50% ;
+    -ms-border-radius: 50% ;
+    -o-border-radius: 50% ;
+}
+#v-pills-tab .btn-ChangeImage:hover {
+    box-shadow: none;
+    border: none;
+    color: #000;
+    border-radius: 50% ;
+    -webkit-border-radius: 50% ;
+    -moz-border-radius: 50% ;
+    -ms-border-radius: 50% ;
+    -o-border-radius: 50% ;
+    background: rgb(70, 70, 70);
+    opacity: 0.5;
+}
+#v-pills-tab .btn-ChangeImage:active {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+}
+
+.menu_perfil_back .tab-content .table {
+    width: 90%;
+}
+
+/* Style for EditAndDelete component */
+#EditAndDelete {
+    width: 80%;
+    margin-top: 30px;
+    margin-left: 10%;
+    z-index: 1006;
+    background: linear-gradient(0deg, black, rgb(49, 49, 49));
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+#EditAndDelete .btn-ChangeImage {
+    opacity: 0.5;
+    background: none;
+    border: #b3b3b3;
+    width: 100%;
+    color: white;
+}
+#EditAndDelete .btn-ChangeImage:hover{
+    opacity: 0.9;
+}
+#EditAndDelete .btn-ChangeImage:active {
+    opacity: 1;
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+}
+
+#EditAndDelete div .div-img {
+    max-width: 30%;
+}
+
+#EditAndDelete div div img {
+    max-width: 100%;
+}
+
+#EditAndDelete:first-child div {
+    color: #000;
+    display: inline-block;
+    width: 100%;
+}
+
+#EditAndDelete .btn-danger,
+#usersTable .btn-danger, #songsTable .btn-danger {
+    color: #fff;
+    background-color: red;
+}
+.modal-title {
+    color: #000;
+}
+
+.card-img-cont .btn-ChangeImage {
+    opacity: 0.5;
+    background: none;
+    border: #b3b3b3;
+    width: 100%;
+    color: #000;
+}
+.card-img-cont .btn-ChangeImage:hover{
+    opacity: 0.9;
+}
+.card-img-cont .btn-ChangeImage:active {
+    opacity: 1;
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+}
+
+.newNav {
+    width: 10%;
+    display: inline-flex;
+}
