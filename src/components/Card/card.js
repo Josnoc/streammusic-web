@@ -15,7 +15,7 @@ export default function Card({ data, type, artist }) {
                 className="Card__link "
             >
                 <div className='card-container me-auto ms-auto card_img_container'>
-                    <img alt='' className="align-middle mt-3" src={`${data.image && data.image || defaultImg }`} />
+                    <img alt='' className="align-middle mt-3" src={`${(data.image && data.image) || defaultImg }`} />
                 </div>
                 <div className="card-body">
                     <p className="card-tittle">{data.name}</p>

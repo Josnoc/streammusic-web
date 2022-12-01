@@ -1,6 +1,6 @@
 import React from 'react';
-import Logo from '../../assets/imgs/logo.png';
-import backgr from '../../assets/imgs/fondo.jpg';
+// import Logo from '../../assets/imgs/logo.png';
+import backgr from '../../assets/imgs/registerBack.jpg';
 import { Link } from "react-router-dom";
 
 
@@ -18,34 +18,42 @@ export default function Header() {
 
     }
     const User = localStorage.getItem("name");
+    const userImg = localStorage.getItem('user_img');
 
     return (
 
-        <nav className="navbar-expand navbar-dark sticky-top" style={{ background: ' url(' + backgr + ')', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', opacity: 0.9, }}>
+        <nav className="navbar-expand navbar-dark sticky-top" id='nav_background' style={{ background: `url(${backgr})`, backgroundRepeat: 'no-repeat', opacity: 0.9, }}>
             <div className='d-flex' style={{ background: 'rgba(0,0,0,.5)' }}>
 
                 {/* <div style={{ display: 'flex', alignItems: 'center'}}> */}
                 <div className='d-flex'>
-                    <Link to={'/'}>
-                    <img src={Logo} width={'14%'} /></Link>
+                    <Link to={'/perfil'} className=" text-decoration-none"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ir a mi perfil">
+                    {(userImg && <img alt='' className='m-1 rounded-circle bg-secondary ms-5 fw-bold fs-2 text-center' src={userImg} style={{width: '60px', height: '60px'}} />) 
+                    || <div style={{color: '#ff6347'}} className='w-75 m-2 rounded-circle bg-secondary ms-5 fw-bold fs-2 text-center'>{User.charAt(0)}</div>}
+                    
+                    </Link>
 
                 </div>
                 {/* </div> */}
-                <div className="collapse navbar-collapse  justify-content-end align-items-start" id="navbarNavDropdown">
+                <div className="d-flex w-50 justify-content-end align-items-center">
+                    <Link to={'/'} className="nav-link text-decoration-none"><p className='fs-1 fw-bold'>StreamMusic</p>
+                    </Link>
+                </div>
+                <div className="collapse navbar-collapse justify-content-end align-items-center" id="navbarNavDropdown">
                     <ul className="navbar-nav pe-4">
 
-                    <li className="nav-item" ><a className="nav-link" href="#">App</a></li>
-                    <li className="nav-item" ><a className="nav-link" href="#">Ayuda</a></li>
+                    <li className="nav-item" ><Link className="nav-link" href="#">App</Link></li>
+                    <li className="nav-item" ><Link className="nav-link" href="#">Ayuda</Link></li>
                         <li className="nav-item dropdown" >
-                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {User && User || "User"}
-                            </a>
+                            <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {(User && User) || "User"}
+                            </Link>
                             <ul className="dropdown-menu" style={{ color: 'white', background: '#f9f9f9a4' }}>
                                 <li><Link className="dropdown-item"  to={"/perfil"}>Cuenta</Link></li>
                                 <li><Link className="dropdown-item" to={"/"}>Artistas</Link></li>
                                 <li><Link className="dropdown-item"  to={"/users"}>Usuarios</Link></li>
-                                <li><a className="dropdown-item"  href={"#"}
-                                    onClick={() => { cerrarSesion() }}>Salir</a></li>
+                                <li><Link className="dropdown-item"  href={"#"}
+                                    onClick={() => { cerrarSesion() }}>Salir</Link></li>
                             </ul>
                         </li>
                     </ul>

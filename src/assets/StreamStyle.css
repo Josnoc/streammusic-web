@@ -16,6 +16,10 @@
     border: 1px solid red;
 }
 
+#nav_background {
+    background: var(--tomato);
+}
+
 .btn__back {
     display: flex;
     font-size: larger;
@@ -211,9 +215,25 @@
     min-width: 190px;
 }
 #main_cards .defaultCard {
+    background: none;
     min-width: 220px;
     width: 22%;
 }
+.album__header .album-img {
+    width: 50%;
+}
+.album__header .album-img img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 70%;
+}
+
+#main_cards .defaultCard i {
+    font-size: 150px;
+}
+#main_cards .defaultCard .iconContainer{
+    width: 160px;
+    height: 160px;}
 
 /* Style for Modal */
 .card-img-cont {
@@ -266,7 +286,7 @@
 }
 
 #Album_main .album__header {
-    height: 300px;
+    /* height: 300px; */
 }
 
 #Album_main .users__header {
@@ -290,7 +310,7 @@
     width: 45%;
 }
 
-#Album_main .album__header img {
+/* #Album_main .album__header img {
     max-height: 100%;
     max-width: 100%;
     width: auto;
@@ -299,12 +319,12 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-}
+} */
 
-#Album_main .album__img {
+/* #Album_main .album__img {
     max-width: 50%;
     width: auto;
-}
+} */
 
 /* 
 .album__controls {
@@ -535,9 +555,15 @@
 }
 
 #EditAndDelete .btn-danger,
-#usersTable .btn-danger, #songsTable .btn-danger {
+#usersTable .btn-danger, #songsTable .btn-danger, #deleteAcount {
     color: #fff;
     background-color: red;
+}
+#deleteAcount:hover {
+    border: #fb5a3e 1px solid;
+    /* cursor: crosshair; */
+    /* color: #fff;
+    background-color: red; */
 }
 .modal-title {
     color: #000;

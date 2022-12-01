@@ -167,16 +167,16 @@ export default function Albums(props) {
             <div className="d-block ps-3">
                 <Back />
             </div>
-            <div className="album__header d-flex pe-2 ps-2">
-                <div className="album__img">
-                    <img alt="" src={`${artistImg}`} />
+            <div className="album__header d-flex align-items-center ps-3">
+                <div className="album-img">
+                    <img className="ms-5" alt="" src={artistImg} />
                 </div>
-                <div className="pt-5 ps-3">
-                    <h5>Album</h5>
+                <div>
+                    <h5>Artista</h5>
                     <h1>{name ? name : 'Artist'}</h1>
                 </div>
             </div>
-            <div className="album__controls d-inline-block pt-2 w-100">
+            {/* <div className="album__controls d-inline-block pt-2 w-100">
                 <div className="album__controls--buttons">
                     <button className="btn_play" hidden>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-play-fill" viewBox="0 0 16 16">
@@ -189,18 +189,20 @@ export default function Albums(props) {
                         </svg>
                     </button>
                 </div>
-            </div>
+            </div> */}
             <div className="album_songs d-flex justify-content-center mt-3">
                 <div className="d-flex row" id="main_cards">
-                    <div className='card p-0 border-light text-center defaultCard' >
+                    <div className='card p-0 text-center defaultCard' >
                         <Link to={'#'} className="Card__link " data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                         >
-                            <div className='card-container me-auto ms-auto mt-3'>
-                                <img alt="" className="card-img-top img-newlbum" src={ImageAlbum} />
+                            {/* <div className='card-container me-auto ms-auto mt-3'> */}
+                                {/* <img alt="" className="card-img-top img-newlbum" src={ImageAlbum} /> */}
+                            {/* </div> */}
+                            <div className="card-body mx-auto mt-4">
+                            <div className="iconContainer mx-auto">
+                                <i className="bi bi-plus-circle"></i>
                             </div>
-                            <div className="card-body">
-                                <p className="card-tittle">Añadir nuevo Album</p>
-                                {/* <p className="card-text">Uno más</p> */}
+                                {/* <p className="card-tittle">Añadir nuevo Album</p> */}
                             </div>
                         </Link>
                     </div>

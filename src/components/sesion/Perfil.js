@@ -5,8 +5,11 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { longCadena, requiredField, isEmail } from '../../utils/validator';
 import ImageDefault from '../../assets/imgs/albums.jpg';
+import { useNavigate } from "react-router-dom";
 
 export default function Perfil() {
+    const navigate = useNavigate();
+
     let user = localStorage.getItem("user");
     const [perfil, setPerfil] = useState({
         name: localStorage.getItem("name"),
@@ -31,7 +34,7 @@ export default function Perfil() {
     const [image, setImage] = useState({
         file: ''
     })
-    
+
     const [errors, setErrors] = useState({});
     const MySwal = withReactContent(Swal);
 
@@ -53,6 +56,7 @@ export default function Perfil() {
         // console.log(userData);
         //change state of Artist
         setPerfil({ name: userData.name, surname: userData.surname, email: userData.email, image: userData.image });
+        localStorage.setItem("user_img", userData.image);
     }
     useEffect(() => {
         //execute async function to get data
@@ -140,8 +144,22 @@ export default function Perfil() {
 
     const updatePerfil = (e) => {
         e.preventDefault();
-            // console.log('entro');
+        // console.log('entro');
         if (!errors.email && !errors.name && !errors.surname) {
+            MySwal.fire({
+                // title: <strong>¡Actualizando!</strong>,
+                // icon: 'success',
+                html: <div><div class="spinner-grow" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div><div class="spinner-grow" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div><div class="spinner-grow" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div></div>,
+                showCancelButton: false,
+                showConfirmButton: false,
+                allowOutsideClick: false,
+            });
             putPerfil(updateInfo, user).then((res) => {
                 if (res.error) {
                     MySwal.fire({
@@ -185,6 +203,20 @@ export default function Perfil() {
 
         if (!errors.password && !errors.newPassword && !errors.currentPassword) {
             if (password.password === password.newPassword) {
+                MySwal.fire({
+                    title: <strong>¡Actualizando!</strong>,
+                    // icon: 'success',
+                    html: <div><div class="spinner-grow" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div><div class="spinner-grow" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div><div class="spinner-grow" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div></div>,
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                });
                 putPass(password, user).then((res) => {
                     if (res.error) {
                         MySwal.fire({
@@ -226,7 +258,7 @@ export default function Perfil() {
                     position: 'top-end',
                 });
             }
-        }else {
+        } else {
             Toast.fire({
                 icon: 'error',
                 title: 'Debes rellenar correctamente la información',
@@ -239,6 +271,20 @@ export default function Perfil() {
     const uploadImage = (e) => {
         e.preventDefault();
         if (!errors.file) {
+            MySwal.fire({
+                title: <strong>¡Actualizando!</strong>,
+                // icon: 'success',
+                html: <div><div class="spinner-grow" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div><div class="spinner-grow" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div><div class="spinner-grow" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div></div>,
+                showCancelButton: false,
+                showConfirmButton: false,
+                allowOutsideClick: false,
+            });
             updateImage(image, user).then((res) => {
                 if (res.error) {
                     MySwal.fire({
@@ -254,16 +300,20 @@ export default function Perfil() {
                         icon: 'success',
                         showConfirmButton: true,
                         allowOutsideClick: false,
+                        didClose() {
+                            getUser()
+                        }
                     });
+
                 } else {
                     Toast.fire({
-                      icon: 'warning',
-                      title: 'Estamos presentando problemas',
-                      position: 'top-end',
-                      timer: 2000,
-                  });
-                  }
-                  console.log(res);
+                        icon: 'warning',
+                        title: 'Estamos presentando problemas',
+                        position: 'top-end',
+                        timer: 2000,
+                    });
+                }
+                // console.log(res);
             })
         } else {
             Toast.fire({
@@ -275,23 +325,70 @@ export default function Perfil() {
         }
     }
 
+    const deleteAcount = (id) => {
+        Swal.fire({
+            title: '¿Seguro que quiere eliminar su cuenta? Perderá toda su información almacenada.',
+            // inputValue: inputValue,
+            confirmButtonText: 'Sí, eliminar',
+            showCancelButton: true,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              deleteData(id).then((res) => {
+                if (res.error || res.errorCode) {
+                  MySwal.fire({
+                    title: <strong>¡Error al eliminar!</strong>,
+                    html: <i>{res.error}</i>,
+                    icon: 'error',
+                    allowOutsideClick: true
+                  });
+                } else if (res.data) {
+                  MySwal.fire({
+                    title: <strong>¡Eliminado correctamente!</strong>,
+                    html: <i>{res.data.message}</i>,
+                    icon: 'success',
+                    showConfirmButton: true,
+                    allowOutsideClick: false,
+                    didClose() {
+                        localStorage.setItem("token", '');
+                    localStorage.setItem("name", '');
+                    localStorage.setItem("surname", '');
+                    localStorage.setItem("user", '');
+                    localStorage.setItem("email", '');
+                    localStorage.setItem("user_img", '');
+                    navigate('/', { replace: true });
+                    }
+                  });
+                } else {
+                  Toast.fire({
+                    icon: 'warning',
+                    title: 'Estamos presentando problemas',
+                    position: 'top-end',
+                    timer: 2000,
+                });
+                }
+                console.log(res);
+              }).catch(error => { console.log(error); })
+            }
+          })
+    }
+
     return (
         <div className="container justify-content-center bg-light" id="Main_main">
             <div className=" row mt-2" id="">
-                <div className="d-flex align-items-start menu_perfil_back">
+                <div className="d-flex align-items-start menu_perfil_back" style={{ background: 'linear-gradient(270deg, black, rgb(87, 87, 87)' }}>
                     <div className="nav flex-column nav-pills me-3 align-items-center  mt-3" id="v-pills-tab" role="tablist" aria-orientation="vertical" style={{ height: '100%' }}>
                         <div className='position-relative' id='perfilImage_container'>
                             <div id='perfil__User' className='position-absolute end-0 start-0'><img alt='' src={(perfil.image && perfil.image) || ImageDefault} /></div>
-                            <button className='position-absolute end-0 start-0 top-0 btn-ChangeImage ' style={{color: 'white'}} data-bs-toggle="modal" data-bs-target="#ImageModal">Cambiar Imagen</button>
+                            <button className='position-absolute end-0 start-0 top-0 btn-ChangeImage ' style={{ color: 'white' }} data-bs-toggle="modal" data-bs-target="#ImageModal">Cambiar Imagen</button>
                         </div>
                         <div className='mt-3'>
 
-                        <button className="nav-link align-self-center active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
-                        <button className="nav-link align-self-center" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Editar Perfil</button>
-                        <button className="nav-link align-self-center" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Cambiar contraseña</button>
-                        <button className="nav-link align-self-center" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false" hidden>Settings</button>
-                    </div>
+                            <button className="nav-link align-self-center active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
+                            <button className="nav-link align-self-center" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Editar Perfil</button>
+                            <button className="nav-link align-self-center" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Cambiar contraseña</button>
+                            <button className="nav-link align-self-center" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Cuenta</button>
                         </div>
+                    </div>
                     <div className="tab-content  pt-2" id="v-pills-tabContent">
                         <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabIndex="0">
                             <div className='container text-dark'>
@@ -319,7 +416,7 @@ export default function Perfil() {
                         <div className="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabIndex="0">
                             <div ><h1 className='card-title mb-1 text-center'>Edita tu Perfil</h1></div>
                             <div className='container'>
-                                <form 
+                                <form
                                     onChange={handleChange}
                                     onSubmit={updatePerfil}
                                     noValidate
@@ -378,22 +475,22 @@ export default function Perfil() {
                         <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabIndex="0">
                             <div ><h1 className='card-title mb-1 text-center'>Actualizar contraseña</h1></div>
                             <div className='container'>
-                                <form 
+                                <form
                                     onChange={handleChangePass}
                                     onSubmit={updatePassword}
                                 >
-                                <div className='mb-3'>
-                                    <label htmlFor="currentPassword" className="form-label">Contraseña actual</label>
-                                    <input
-                                        type="password"
-                                        className={(errors.currentPassword && 'w-75 form-control is-invalid') || 'form-control w-75 is-valid'}
-                                        placeholder="Contraseña Actual"
-                                        name="currentPassword"
-                                        onBlur={handleValidate} />
-                                    <div className={(errors.currentPassword && 'invalid-feedback') || 'valid-feedback'}>
-                                        {errors.currentPassword}
+                                    <div className='mb-3'>
+                                        <label htmlFor="currentPassword" className="form-label">Contraseña actual</label>
+                                        <input
+                                            type="password"
+                                            className={(errors.currentPassword && 'w-75 form-control is-invalid') || 'form-control w-75 is-valid'}
+                                            placeholder="Contraseña Actual"
+                                            name="currentPassword"
+                                            onBlur={handleValidate} />
+                                        <div className={(errors.currentPassword && 'invalid-feedback') || 'valid-feedback'}>
+                                            {errors.currentPassword}
+                                        </div>
                                     </div>
-                                </div>
                                     <div className='mb-3'>
                                         <label htmlFor="password" className="form-label">Nueva Contraseña</label>
                                         <input
@@ -423,7 +520,9 @@ export default function Perfil() {
                             </div>
                         </div>
                         <div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" tabIndex="0">
-                            Maecenas et neque nulla. Sed id nunc sapien. Sed fringilla lectus sed odio malesuada, sit amet pharetra dolor cursus. Fusce in tempus nulla. In vitae mollis lacus, eu venenatis ante. Nulla sed magna eu mi semper efficitur eu eu diam. Mauris sem nisl, sollicitudin rutrum pulvinar nec, euismod vel urna. Aliquam erat volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+                        <div className='container text-center'>
+                            <button type="button" className="btn btn-danger btn-lg mt-5" id='deleteAcount' onClick={()=>{deleteAcount()}}>Eliminar Cuenta</button>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -438,7 +537,7 @@ export default function Perfil() {
                         </div>
                         <div className="modal-body  ">
                             <div className=' p-0 border-light d-flex align-items-center' >
-                               
+
                                 <div className="body-Modal">
                                     <form onChange={handleChangeImage}
                                         onSubmit={uploadImage}
@@ -461,14 +560,14 @@ export default function Perfil() {
                                                 Selecciona el archivo
                                             </div>
                                         </div>
-                                        <button type="submit" className="btn btn-primary" >Cambiar imagen</button>
+                                        <button type="submit" className="btn btn-primary" data-bs-target="#EditUserModal" data-bs-toggle="modal">Cambiar imagen</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <div className="modal-footer">
+                        {/* <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-target="#EditUserModal" data-bs-toggle="modal">Close</button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
@@ -519,4 +618,14 @@ const updateImage = (Image, id) => {
         .catch((error) => {
             return { errorCode: error.code, error: error.message };
         });
+}
+
+const deleteData = (id) =>{
+    return axiosClient.delete(`${RutaApi}delete-user/${id}`)
+    .then((response) => {
+      return { ...response };
+    })
+    .catch((error) => {
+      return { errorCode: error.code, error: error.message };
+    });
 }

@@ -102,6 +102,7 @@ export default function Login() {
                         localStorage.setItem("surname", res.data.user.surname);
                         localStorage.setItem("user", res.data.user._id);
                         localStorage.setItem("email", res.data.user.email);
+                        localStorage.setItem("user_img", res.data.user.image);
                         navigate('/', { replace: true });
                         //     }
                         // });
@@ -129,7 +130,7 @@ export default function Login() {
         }
     }
 
-
+    let userImg = localStorage.getItem('user_img'), User = localStorage.getItem("name");
 
 
     return (
@@ -139,7 +140,9 @@ export default function Login() {
 
                 <div className="card" >
                     <div className="login-logo mx-auto" >
-                        <img alt='' src={Logo} />
+                        {/* <img alt='' src={Logo} /> */}
+                        {(userImg && <img alt='' className='rounded-circle mt-4' src={userImg} style={{width: '160px', height: '160px'}} />) 
+                    || (User && <div style={{color: '#ff6347', width: '160px', height: '160px'}} className='rounded-circle bg-secondary fw-bold fs-1 text-center'>{User.charAt(0)}</div>) || <img alt='' src={Logo} />}
                     </div>
                     <div className="card-body login-card-body" >
                         <h5 className="card-title">Iniciar sesión</h5>

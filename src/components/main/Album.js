@@ -69,7 +69,7 @@ export default function Album(props) {
         <th scope="row">{index + 1}</th>
         <td className="text-capitalize">{song.name}</td>
         <td className="text-capitalize">{song.album}</td>
-        <td>{song.duration} m</td>
+        <td>{(song.duration && `${song.duration} m`) || ''}</td>
         <td><button className="btn btn-primary" onClick={()=>{settingEditData(song._id)}} data-bs-toggle="modal" data-bs-target="#EditSongModal">Editar</button><button className="btn btn-danger" onClick={()=>{deleteThis(song._id)}}>Eliminar</button></td>
       </tr>
 
@@ -165,6 +165,20 @@ export default function Album(props) {
   const saveSong = async (e) => {
     e.preventDefault();
     if (!errors.number && !errors.name && !errors.file) {
+      MySwal.fire({
+        title: <strong>¡Actualizando!</strong>,
+        // icon: 'success',
+        html: <div><div class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div><div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div><div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div></div>,
+        showCancelButton: false,
+        showConfirmButton: false,
+        allowOutsideClick: false,
+    });
       setData(song, _id, artist).then((res) => {
         if (res.error) {
           MySwal.fire({
@@ -206,7 +220,7 @@ export default function Album(props) {
   }
 
   const deleteThis = async (id) => {
-    console.log(id);
+    // console.log(id);
     Swal.fire({
       title: '¿Seguro que quiere eliminar esta canción?',
       // inputValue: inputValue,
@@ -251,6 +265,20 @@ export default function Album(props) {
   const updateSong = async (e) => {
     e.preventDefault();
     if (!errorsEdit.name && !errorsEdit.number) {
+      MySwal.fire({
+        title: <strong>¡Actualizando!</strong>,
+        // icon: 'success',
+        html: <div><div class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div><div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div><div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div></div>,
+        showCancelButton: false,
+        showConfirmButton: false,
+        allowOutsideClick: false,
+    });
       putData(songEdit, _id, artist).then((res) => {
         if (res.error) {
           MySwal.fire({
@@ -299,17 +327,18 @@ export default function Album(props) {
     })
   }
 
-  const setSongsPlay = (songs) => {
+  // const setSongsPlay = (songs) => {
     
-  }
+  // }
 
   return (
     <div className="p-3" id="Album_main">
       <div className="d-block ps-3">
         <Back />
       </div>
-      <div className="album__header d-flex ps-3">
-        <div><img alt="" src={albumImage} />
+      <div className="album__header d-flex align-items-center ps-3">
+        <div className="album-img">
+          <img className="ms-5" alt="" src={albumImage} />
         </div>
 
         <div className="pt-5 ps-3">
@@ -319,18 +348,18 @@ export default function Album(props) {
       </div>
       <div className="album__controls pt-2">
         <div className="album__controls--buttons">
-          <button className="btn_play" onClick={()=>{setSongsPlay(songs)}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-play-fill" viewBox="0 0 16 16">
+          {/* <button className="btn_play" onClick={()=>{setSongsPlay(songs)}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-play-fill" viewBox="0 0 16 16">
             <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
           </svg></button>
           <button className="btn_fav">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
             </svg>
-          </button>
+          </button> */}
           <button className="button_addSong" data-bs-toggle="modal" data-bs-target="#AddSongModal">Agregar canción</button>
         </div>
       </div>
-      <div className="album_songs d-flex justify-content-center mt-3 text-center">
+      <div className="album_songs d-flex justify-content-center mt-4 text-center">
         <table className="table" id="songsTable">
           <thead >
             <tr>

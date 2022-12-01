@@ -165,7 +165,7 @@ export default function EditAndDelete({ props }) {
                                 if (collection === "album") {
                                     navigate(-1);
                                 } else {
-                                    navigate('/main', { replace: true });
+                                    navigate('/', { replace: true });
                                 }
 
                             }
@@ -186,6 +186,20 @@ export default function EditAndDelete({ props }) {
     const uploadImage = (e) => {
         e.preventDefault();
         if (!errors.file) {
+            MySwal.fire({
+                title: <strong>¡Actualizando!</strong>,
+                // icon: 'success',
+                html: <div><div class="spinner-grow" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div><div class="spinner-grow" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div><div class="spinner-grow" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div></div>,
+                showCancelButton: false,
+                showConfirmButton: false,
+                allowOutsideClick: false,
+            });
             updateImage(image, collection, _id).then((res) => {
                 if (res.error) {
                     MySwal.fire({
@@ -231,11 +245,11 @@ export default function EditAndDelete({ props }) {
             <Back />
             <div className="d-flex align-items-center">
                 <div className="div-img">
-                    <img alt='' src={`${dataInfo.image}`} />
+                    <img alt='' src={`${dataInfo.image}`}/>
                     <button className='btn-ChangeImage' data-bs-toggle="modal" data-bs-target="#ImageModal">Cambiar Imagen</button>
                 </div>
 
-                <div className="w-100">
+                <div className="w-100 ms-3">
                     <h1 className="text-capitalize">{name ? name : 'Artist'}</h1>
                     <h3>Editar </h3>
                     <div className=" d-flex justify-content-center mt-3 w-100 text-center">
@@ -329,14 +343,14 @@ export default function EditAndDelete({ props }) {
                                                 Selecciona el archivo
                                             </div>
                                         </div>
-                                        <button type="submit" className="btn btn-primary" >Cambiar imagen</button>
+                                        <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Cambiar imagen</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <div className="modal-footer">
+                        {/* <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

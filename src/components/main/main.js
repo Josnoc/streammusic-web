@@ -6,7 +6,7 @@ import { longCadena, requiredField } from '../../utils/validator'
 import Card from "../Card/card";
 import axiosClient from "../../config/axiosClient";
 import { Link } from "react-router-dom";
-import ImageArtist from '../../assets/imgs/artist.jpg'
+// import ImageArtist from '../../assets/imgs/artist.jpg'
 
 export default function Main() {
     const [artist, setArtist] = useState([]);
@@ -140,16 +140,19 @@ export default function Main() {
     return (
         <div className=" d-flex p-3 me-4 ms-4 justify-content-center" id="Main_main">
             <div className="d-flex row" id="main_cards">
-                <div className='card p-0 border-light text-center defaultCard' >
-                    <Link to={'#'} className="Card__link " data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                <div className='card p-0 text-center defaultCard' >
+                    <Link to={'#'} className="Card__link" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                     >
-                        <div className='card-container me-auto ms-auto mt-3'>
-                            <img alt="" className="card-img-top" width={'100%'} height={'100%'} src={ImageArtist} />
+                        <div className='card-container mx-auto mt-4'>
+                            <div className="iconContainer mx-auto">
+                                <i className="bi bi-plus-circle"></i>
+                            </div>
+                            {/* <img alt="" className="card-img-top" width={'100%'} height={'100%'} src={ImageArtist} /> */}
                         </div>
-                        <div className="card-body">
-                            <p className="card-tittle">Añadir nuevo Artista</p>
-                            {/* <p className="card-text">Inspírate</p> */}
-                        </div>
+                        {/* <div className="card-body"> */}
+                        {/* <p className="card-tittle">Añadir nuevo Artista</p> */}
+                        {/* <p className="card-text">Inspírate</p> */}
+                        {/* </div> */}
                     </Link>
                 </div>
                 {renderInformation()}
