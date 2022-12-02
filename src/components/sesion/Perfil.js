@@ -149,12 +149,12 @@ export default function Perfil() {
             MySwal.fire({
                 // title: <strong>¡Actualizando!</strong>,
                 // icon: 'success',
-                html: <div><div class="spinner-grow" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div><div class="spinner-grow" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div><div class="spinner-grow" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                html: <div><div className="spinner-grow" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div><div className="spinner-grow" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div><div className="spinner-grow" role="status">
+                        <span className="visually-hidden">Loading...</span>
                     </div></div>,
                 showCancelButton: false,
                 showConfirmButton: false,
@@ -206,12 +206,12 @@ export default function Perfil() {
                 MySwal.fire({
                     title: <strong>¡Actualizando!</strong>,
                     // icon: 'success',
-                    html: <div><div class="spinner-grow" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div><div class="spinner-grow" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div><div class="spinner-grow" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                    html: <div><div className="spinner-grow" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div><div className="spinner-grow" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div><div className="spinner-grow" role="status">
+                            <span className="visually-hidden">Loading...</span>
                         </div></div>,
                     showCancelButton: false,
                     showConfirmButton: false,
@@ -274,12 +274,12 @@ export default function Perfil() {
             MySwal.fire({
                 title: <strong>¡Actualizando!</strong>,
                 // icon: 'success',
-                html: <div><div class="spinner-grow" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div><div class="spinner-grow" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div><div class="spinner-grow" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                html: <div><div className="spinner-grow" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div><div className="spinner-grow" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div><div className="spinner-grow" role="status">
+                        <span className="visually-hidden">Loading...</span>
                     </div></div>,
                 showCancelButton: false,
                 showConfirmButton: false,
@@ -521,7 +521,7 @@ export default function Perfil() {
                         </div>
                         <div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" tabIndex="0">
                         <div className='container text-center'>
-                            <button type="button" className="btn btn-danger btn-lg mt-5" id='deleteAcount' onClick={()=>{deleteAcount()}}>Eliminar Cuenta</button>
+                            <button type="button" className="btn btn-danger btn-lg mt-5" id='deleteAcount' onClick={()=>{deleteAcount(user)}}>Eliminar Cuenta</button>
                         </div>
                         </div>
                     </div>

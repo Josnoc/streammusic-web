@@ -1,1 +1,1 @@
-export const RutaApi = 'https://api-music-streaming.herokuapp.com/api/';
+export const RutaApi = 'https://api-stream-music.up.railway.app/api/';

@@ -168,12 +168,12 @@ export default function Album(props) {
       MySwal.fire({
         title: <strong>¡Actualizando!</strong>,
         // icon: 'success',
-        html: <div><div class="spinner-grow" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div><div class="spinner-grow" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div><div class="spinner-grow" role="status">
-                <span class="visually-hidden">Loading...</span>
+        html: <div><div className="spinner-grow" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div><div className="spinner-grow" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div><div className="spinner-grow" role="status">
+                <span className="visually-hidden">Loading...</span>
             </div></div>,
         showCancelButton: false,
         showConfirmButton: false,
@@ -268,12 +268,12 @@ export default function Album(props) {
       MySwal.fire({
         title: <strong>¡Actualizando!</strong>,
         // icon: 'success',
-        html: <div><div class="spinner-grow" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div><div class="spinner-grow" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div><div class="spinner-grow" role="status">
-                <span class="visually-hidden">Loading...</span>
+        html: <div><div className="spinner-grow" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div><div className="spinner-grow" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div><div className="spinner-grow" role="status">
+                <span className="visually-hidden">Loading...</span>
             </div></div>,
         showCancelButton: false,
         showConfirmButton: false,
