@@ -22,7 +22,7 @@ export default function Header() {
 
     return (
 
-        <nav className="navbar-expand navbar-dark sticky-top" id='nav_background' style={{ background: `url(${backgr})`, backgroundRepeat: 'no-repeat', opacity: 0.9, }}>
+        <nav className="navbar-expand navbar-dark sticky-top" id='nav_background' style={{ background: `linear-gradient(180deg, #ff6347, black)`, backgroundRepeat: 'no-repeat', opacity: 0.9, }}>
             <div className='d-flex' style={{ background: 'rgba(0,0,0,.5)' }}>
 
                 {/* <div style={{ display: 'flex', alignItems: 'center'}}> */}
@@ -35,7 +35,7 @@ export default function Header() {
 
                 </div>
                 {/* </div> */}
-                <div className="d-flex w-50 justify-content-end align-items-center">
+                <div className="d-flex w-50 justify-content-end align-items-center text-white">
                     <Link to={'/'} className="nav-link text-decoration-none"><p className='fs-1 fw-bold'>StreamMusic</p>
                     </Link>
                 </div>
@@ -48,7 +48,7 @@ export default function Header() {
                             <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {(User && User) || "User"}
                             </Link>
-                            <ul className="dropdown-menu" style={{ color: 'white', background: '#f9f9f9a4' }}>
+                            <ul className="dropdown-menu" style={{ color: 'white', background: '#595858' }}>
                                 <li><Link className="dropdown-item"  to={"/perfil"}>Cuenta</Link></li>
                                 <li><Link className="dropdown-item" to={"/"}>Artistas</Link></li>
                                 <li><Link className="dropdown-item"  to={"/users"}>Usuarios</Link></li>

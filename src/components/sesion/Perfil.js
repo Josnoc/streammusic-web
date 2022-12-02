@@ -375,7 +375,7 @@ export default function Perfil() {
     return (
         <div className="container justify-content-center bg-light" id="Main_main">
             <div className=" row mt-2" id="">
-                <div className="d-flex align-items-start menu_perfil_back" style={{ background: 'linear-gradient(270deg, black, rgb(87, 87, 87)' }}>
+                <div className="d-flex align-items-start menu_perfil_back" style={{ background: 'linear-gradient(0deg, #ff6347, rgb(87, 87, 87)' }}>
                     <div className="nav flex-column nav-pills me-3 align-items-center  mt-3" id="v-pills-tab" role="tablist" aria-orientation="vertical" style={{ height: '100%' }}>
                         <div className='position-relative' id='perfilImage_container'>
                             <div id='perfil__User' className='position-absolute end-0 start-0'><img alt='' src={(perfil.image && perfil.image) || ImageDefault} /></div>
@@ -398,11 +398,11 @@ export default function Perfil() {
                                         <tbody>
                                             <tr>
                                                 <td className='text-light'>Nombre</td>
-                                                <td className='fw-bold text-muted'>{`${perfil.name} ${perfil.surname}`}</td>
+                                                <td className='fw-bold text-white'>{`${perfil.name} ${perfil.surname}`}</td>
                                             </tr>
                                             <tr>
                                                 <td className='text-light'>Email</td>
-                                                <td className='fw-bold text-muted'>{perfil.email}</td>
+                                                <td className='fw-bold text-white'>{perfil.email}</td>
                                             </tr>
                                             <tr>
                                                 <td className='text-light'>Fecha de nacimiento</td>
