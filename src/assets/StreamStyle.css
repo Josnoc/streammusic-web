@@ -27,12 +27,14 @@
     font-weight: bold;
     background: none !important;
     text-decoration: none;
-    color: white;
+    /* color: white; */
+    color: var(--tomato);
 }
 
 .btn__back:hover {
     /* text-decoration: none; */
-    color: rgba(255, 255, 255, 0.722);
+    /* color: rgba(255, 255, 255, 0.722); */
+    color: var(--tomatoHover);
 }
 
 
@@ -289,7 +291,7 @@
     z-index: 1006;
     margin: 20px;
     /* background: linear-gradient(0deg, black, rgb(49, 49, 49)); */
-    background: linear-gradient(180deg, #ff6347, rgb(49, 49, 49));
+    background: linear-gradient(180deg, #d9d6d6, rgb(49, 49, 49));
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -527,7 +529,7 @@
     margin-left: 10%;
     z-index: 1006;
     /* background: linear-gradient(180deg, #ff6347, rgb(49, 49, 49)); */
-    background: var(--tomato);
+    background: var(--whiteLHover);
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;

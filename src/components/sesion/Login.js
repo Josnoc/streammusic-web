@@ -79,20 +79,20 @@ export default function Login() {
         // console.log(API_URL);
         e.preventDefault();
         if (!errors.email && !errors.password) {
-            // MySwal.fire({
-            //     title: <strong>¡Actualizando!</strong>,
-            //     // icon: 'success',
-            //     html: <div><div class="spinner-grow" role="status">
-            //         <span className="visually-hidden">Loading...</span>
-            //     </div><div className="spinner-grow" role="status">
-            //             <span className="visually-hidden">Loading...</span>
-            //         </div><div className="spinner-grow" role="status">
-            //             <span className="visually-hidden">Loading...</span>
-            //         </div></div>,
-            //     showCancelButton: false,
-            //     showConfirmButton: false,
-            //     allowOutsideClick: false,
-            // });
+            MySwal.fire({
+                title: <strong>Cargando...</strong>,
+                // icon: 'success',
+                html: <div><div class="spinner-grow" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div><div className="spinner-grow" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div><div className="spinner-grow" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div></div>,
+                showCancelButton: false,
+                showConfirmButton: false,
+                allowOutsideClick: false,
+            });
             loginAPI(user).then((res) => {
                 if (res.error) {
                     MySwal.fire({

@@ -163,7 +163,7 @@ export default function Albums(props) {
     }
 
     return (
-        <div className=" p-3" id="Album_main" style={{ background: 'linear-gradient(180deg, #ff6347, rgb(49, 49, 49))' }}>
+        <div className=" p-3" id="Album_main" style={{ background: 'linear-gradient(180deg, #d9d6d6, rgb(49, 49, 49))' }}>
             <div className="d-block ps-3">
                 <Back />
             </div>
