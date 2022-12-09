@@ -286,6 +286,63 @@
     -o-border-radius: 10px;
 }
 
+@media (max-width: 900px) {
+    #main_cards .card .card-container {
+        width: 100%;
+        height: 150px;
+        border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+    }
+    #main_cards .defaultCard {
+        background: none;
+        min-width: 90px;
+        width: auto;
+    }
+    .card_img_container img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    #main_cards .card .card-container {
+        width: 100%;
+        height: 100px;
+        border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+    }
+    .card_img_container img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+    .defaultCard .card-body {
+        min-width: 90px;
+        width: auto;
+    }
+    #main_cards .defaultCard i {
+        font-size: 100px;
+    }
+    #main_cards .defaultCard .iconContainer{
+        width: 100px;
+        height: 100px;}
+  }
+
 /* Styles for Album component*/
 #Album_main {
     z-index: 1006;
